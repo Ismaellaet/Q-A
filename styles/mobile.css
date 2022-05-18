@@ -1,0 +1,137 @@
+/* ==== Variables ==== */
+:root {
+    --primary-color: hsl(22, 79%, 46%);
+    --secundary-color: hsl(216, 72%, 18%);
+    --secundary-color-light: hsl(216, 100%, 66%);
+    --border-input-color: hsl(216, 31%, 72%);
+    --background: hsl(180, 14%, 97%);
+    --details: hsl(216, 18%, 70%);
+
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+/* ==== Globals ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100vw;
+    background: var(--background);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.container {
+    margin-inline: 2.4rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+    color: var(--secundary-color);
+    margin-bottom: 2rem;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    width: 100%;
+    padding-block: 1.2rem;
+
+    background-color: var(--primary-color);
+
+    border: none;
+    border-radius: .8rem;
+
+    color: white;
+
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+a.button-outlined {
+    width: 100%;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    background: transparent;
+
+    border: 2px solid var(--primary-color);
+    border-radius: .8rem;
+
+    color: var(--primary-color);
+    padding-block: 1.2rem;
+
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* ==== Header ==== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.8rem;
+}
+
+/* ==== Main ==== */
+main {
+    margin-top: 8rem;
+}
+
+main form input {
+    width: 100%;
+
+    border: 1px solid var(--border-input-color);
+    border-radius: .8rem;
+
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 1.6rem;
+
+    outline: none;
+}
+
+/* ==== Separator ==== */
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    margin: 4rem 0;
+}
+
+.separator div:nth-child(2) {
+    font-size: 1.6rem;
+    color: var(--details);
+}
+
+.separator div:nth-child(1),
+.separator div:nth-child(3) {
+    width: 100%;
+    height: 1px;
+    background: var(--details);
+}
