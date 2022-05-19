@@ -1,0 +1,79 @@
+/* ==== Modal ==== */
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100%;
+
+    background-color: hsla(217, 62%, 4%, .8);
+
+    display: flex;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-wrapper.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-wrapper .modal {
+    background-color: var(--background);
+    width: min(90%, 32.3rem);
+    text-align: center;
+    margin: auto;
+
+    padding: 3rem 2.4rem;
+
+    border-radius: .8rem;
+}
+
+.modal-wrapper .modal .title {
+    margin-bottom: 1.2rem;
+}
+
+.modal-wrapper .modal .description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+
+    margin-bottom: 2.4rem;
+
+    color: var(--secundary-color);
+}
+
+.modal-wrapper .modal form input {
+    border: 2px solid var(--border-input-color);
+    border-radius: .8rem;
+
+    padding: 1.2rem 1.6rem;
+}
+
+.modal-wrapper .modal form input::placeholder {
+    color: var(--border-input-color);
+}
+
+.modal-wrapper .modal .buttons {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+
+    margin-top: 3.6rem;
+}
+
+.modal-wrapper .modal .buttons .cancel {
+    background-color: var(--background-cancel);
+    color: var(--secundary-color);
+
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    padding: 1.2rem 2rem;
+    border-radius: .8rem;
+}
+
+.modal-wrapper .modal .buttons .confirm {
+    font-weight: 500;
+}

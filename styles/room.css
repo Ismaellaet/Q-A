@@ -1,0 +1,106 @@
+/* ==== Room ==== */
+#room.content {
+    max-width: min(32.3rem, 90%);
+    margin-inline: auto;
+}
+
+#room header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.8rem;
+}
+
+#room h2 {
+    margin-top: 4rem;
+}
+
+/* ==== Question Form ==== */
+.question-form form {
+    border: 1px solid var(--border-input-color);
+    border-radius: 0 .8rem .8rem .8rem;
+    padding: 1.2rem 1.6rem;
+}
+
+.question-form form textarea {
+    resize: none;
+
+    width: 100%;
+    margin-bottom: 4rem;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+}
+
+.question-form form textarea::placeholder {
+    color: var(--border-input-color);
+}
+
+.question-form form footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-form form footer div {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    font-size: 1.2rem;
+    color: var(--border-input-color);
+}
+
+/* ==== Questions ==== */
+.questions-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+    margin-block: 6rem;
+}
+
+.questions-wrapper .question {
+    background-color: var(--question-background);
+    border-radius: 0 .8rem .8rem .8rem;
+
+    padding: 1.2rem .8rem 0 1.2rem;
+}
+
+.questions-wrapper .question .content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    margin-bottom: 2rem;
+}
+
+.questions-wrapper .question .content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+
+    color: var(--secundary-color);
+
+    display: flex;
+    align-items: flex-start;
+
+    word-break: break-word;
+    min-height: 5rem;
+}
+
+.questions-wrapper .question .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+}
+
+/* ==== Questions Read ==== */
+.questions-wrapper .question.read {
+    background-color: var(--question-read-background);
+}
