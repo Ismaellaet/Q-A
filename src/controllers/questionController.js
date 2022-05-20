@@ -1,13 +1,13 @@
-module.exports = {
-    action(req, res) {
-        const roomId = req.params.roomId;
-        const questionId = req.params.questionId;
-        const action = req.params.action;
-        const password = req.body.password;
+const action = (req, res) => {
+    const { roomId, questionId, action } = req.params;
+    const { password } = req.body;
 
-        console.log(`roomId = ${roomId}
+    console.log(`roomId = ${roomId}
          questionId = ${questionId}
          action = ${action}
          password = ${password}`);
-    }
+}
+
+module.exports = {
+    action
 }

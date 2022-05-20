@@ -4,11 +4,11 @@ export default function Modal() {
 
     cancelButton.addEventListener('click', close);
 
-    function close() {
+    const close = () => {
         wrapper.classList.remove('active');
     }
 
-    function open() {
+    const open = () => {
         wrapper.classList.add('active');
     }
     /**
@@ -16,7 +16,7 @@ export default function Modal() {
      * @return {void}
      */
 
-    function changeType(type) {
+    const changeType = (type) => {
         const title = document.querySelector('.modal .title');
         const description = document.querySelector('.modal .description');
         const confirmButton = document.querySelector('.modal .confirm');
@@ -27,7 +27,7 @@ export default function Modal() {
         confirmButton.innerHTML = text; // Change modal confirm button
         changeColorOfConfirmButton();
 
-        function changeColorOfConfirmButton() {
+        const changeColorOfConfirmButton = () => {
             if (type === 'delete') {
                 confirmButton.classList.add('red');
             } else {

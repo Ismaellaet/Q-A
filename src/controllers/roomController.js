@@ -1,15 +1,14 @@
-module.exports = {
-    create(req, res) {
-        const roomId = generateRoomId();
-        const password = req.body.password;
+const create = (req, res) => {
+    const roomId = generateRoomId();
+    const { password } = req.body;
 
-        console.log(`${roomId} ${password}`);
+    console.log(`${roomId} ${password}`);
 
-        res.redirect(`/room/${roomId}`);
-    }
+    res.redirect(`/room/${roomId}`);
 }
 
-function generateRoomId() {
+
+const generateRoomId = () => {
     const maxIdLength = 6;
     let roomId = "";
 
@@ -18,4 +17,8 @@ function generateRoomId() {
     }
 
     return roomId
+}
+
+module.exports = {
+    create
 }

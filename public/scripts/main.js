@@ -22,12 +22,12 @@ deleteButtons.forEach(button => {
  * @param {string} type delete || check
  * @return {void}
  */
-function clickHandling(event, type) {
+const clickHandling = (event, type) => {
     setFormAction();
     modal.changeType(type)
     modal.open()
 
-    function setFormAction() {
+    const setFormAction = () => {
         const form = document.querySelector('.modal form');
         const roomId = document.querySelector('#room-id').dataset.id;
         const questionId = event.target.dataset.id;
