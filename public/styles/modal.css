@@ -51,6 +51,10 @@
     padding: 1.2rem 1.6rem;
 }
 
+.modal-wrapper .modal form input:focus {
+    outline-color: hsl(216, 100%, 63%);
+}
+
 .modal-wrapper .modal form input::placeholder {
     color: var(--border-input-color);
 }
@@ -64,7 +68,7 @@
 }
 
 .modal-wrapper .modal .buttons .cancel {
-    background-color: var(--background-cancel);
+    background-color: var(--cancel-background);
     color: var(--secundary-color);
 
     font-size: 1.6rem;

@@ -8,10 +8,11 @@
     --border-input-color: hsl(216, 31%, 72%);
 
     --background: hsl(180, 14%, 97%);
-    --background-cancel: hsl(216, 30%, 92%);
     --question-background: hsl(21, 100%, 94%);
     --question-read-background: hsla(22, 22%, 38%, 0.1);
 
+    --cancel-background: hsl(216, 30%, 92%);
+    --delete-background: hsl(350, 79%, 58%);
     --details: hsl(216, 18%, 70%);
 
     font-size: 62.5%;
@@ -96,4 +97,8 @@ button,
 
     font-size: 1.6rem;
     font-weight: 500;
+}
+
+.red {
+    background-color: var(--delete-background);
 }
