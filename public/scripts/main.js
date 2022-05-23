@@ -27,7 +27,7 @@ const clickHandling = (event, type) => {
     modal.changeType(type)
     modal.open()
 
-    const setFormAction = () => {
+    function setFormAction() {
         const form = document.querySelector('.modal form');
         const roomId = document.querySelector('#room-id').dataset.id;
         const questionId = event.target.dataset.id;

@@ -4,11 +4,11 @@ export default function Modal() {
 
     cancelButton.addEventListener('click', close);
 
-    const close = () => {
+    function close() {
         wrapper.classList.remove('active');
     }
 
-    const open = () => {
+    function open() {
         wrapper.classList.add('active');
     }
     /**
@@ -27,7 +27,7 @@ export default function Modal() {
         confirmButton.innerHTML = text; // Change modal confirm button
         changeColorOfConfirmButton();
 
-        const changeColorOfConfirmButton = () => {
+        function changeColorOfConfirmButton() {
             if (type === 'delete') {
                 confirmButton.classList.add('red');
             } else {
