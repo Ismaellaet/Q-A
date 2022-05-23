@@ -21,7 +21,7 @@
 <body>
     <div id="room" class="content">
         <header>
-            <div class="logo">
+            <a href="/" class="logo">
                 <svg width="135" height="57" viewBox="0 0 135 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M67.8394 46.2313L64.5094 41.7543C63.5227 41.9516 62.5607 42.0503 61.6234 42.0503C59.1814 42.0503 56.9367 41.4829 54.8894 40.3483C52.8667 39.2136 51.2511 37.6349 50.0424 35.6123C48.8584 33.5649 48.2664 31.2709 48.2664 28.7303C48.2664 26.1896 48.8584 23.9079 50.0424 21.8853C51.2511 19.8626 52.8667 18.2839 54.8894 17.1493C56.9367 16.0146 59.1814 15.4473 61.6234 15.4473C64.0654 15.4473 66.2977 16.0146 68.3204 17.1493C70.3677 18.2839 71.9711 19.8626 73.1304 21.8853C74.3144 23.9079 74.9064 26.1896 74.9064 28.7303C74.9064 30.9503 74.4501 32.9853 73.5374 34.8353C72.6494 36.6606 71.4037 38.1776 69.8004 39.3863L75.4984 46.2313H67.8394ZM54.7414 28.7303C54.7414 31.0243 55.3581 32.8619 56.5914 34.2433C57.8494 35.5999 59.5267 36.2783 61.6234 36.2783C63.6954 36.2783 65.3481 35.5876 66.5814 34.2063C67.8394 32.8249 68.4684 30.9996 68.4684 28.7303C68.4684 26.4363 67.8394 24.6109 66.5814 23.2543C65.3481 21.8729 63.6954 21.1823 61.6234 21.1823C59.5267 21.1823 57.8494 21.8606 56.5914 23.2173C55.3581 24.5739 54.7414 26.4116 54.7414 28.7303ZM124.188 37.2033H114.494L112.94 41.7913H106.317L115.715 15.8173H123.041L132.439 41.7913H125.742L124.188 37.2033ZM122.56 32.3193L119.341 22.8103L116.159 32.3193H122.56Z"
@@ -38,7 +38,7 @@
                     <path d="M19.4316 36.3668H19.4466" stroke="#D35C19" stroke-width="4" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-            </div>
+            </a>
 
             <div class="menu">
                 <div>
@@ -99,6 +99,7 @@
         </header>
 
         <main>
+            <!-- ==== Questions Form ==== -->
             <section class="question-form">
                 <h2>Ask your question</h2>
 
@@ -131,130 +132,105 @@
                 </form>
             </section>
 
-            <!-- Questions -->
+            <!-- ==== Questions ==== -->
             <section class="questions">
                 <h2 class="sr-only">Community questions</h2>
 
-                <div class="questions-wrapper">
-                    <div class="question">
-                        <div class="content">
-                            <div class="avatar">
-                                <svg width="34" height="32" viewBox="0 0 34 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <ellipse cx="16.8023" cy="16" rx="16.4586" ry="16"
-                                        fill="url(#paint0_linear_11006_755)" />
-                                    <path
-                                        d="M21.8666 21.5385V20.3077C21.8666 19.6549 21.5999 19.0287 21.125 18.5671C20.6502 18.1055 20.0061 17.8462 19.3346 17.8462H14.2704C13.5988 17.8462 12.9548 18.1055 12.4799 18.5671C12.0051 19.0287 11.7383 19.6549 11.7383 20.3077V21.5385"
-                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M16.8021 15.3846C18.2005 15.3846 19.3342 14.2825 19.3342 12.9231C19.3342 11.5636 18.2005 10.4615 16.8021 10.4615C15.4037 10.4615 14.27 11.5636 14.27 12.9231C14.27 14.2825 15.4037 15.3846 16.8021 15.3846Z"
-                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_11006_755" x1="39.7427" y1="-48.4086"
-                                            x2="16.3311" y2="35.7856" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#5498FF" />
-                                            <stop offset="0.515625" stop-color="#428EFF" />
-                                            <stop offset="1" stop-color="#297FFF" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
+                <% if (!hasQuestions) { %>
+                    <%- include('parts/no-questions') %>
+                        <% } %>
+                            <div class="questions-wrapper">
 
-                            <a href="#">What is the difference between const, var and let in Javascript?</a>
-                        </div>
+                                <% questions.forEach( question=> { %>
+                                    <div class="question">
+                                        <div class="content">
+                                            <div class="avatar">
+                                                <svg width="34" height="32" viewBox="0 0 34 32" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <ellipse cx="16.8023" cy="16" rx="16.4586" ry="16"
+                                                        fill="url(#paint0_linear_11006_755)" />
+                                                    <path
+                                                        d="M21.8666 21.5385V20.3077C21.8666 19.6549 21.5999 19.0287 21.125 18.5671C20.6502 18.1055 20.0061 17.8462 19.3346 17.8462H14.2704C13.5988 17.8462 12.9548 18.1055 12.4799 18.5671C12.0051 19.0287 11.7383 19.6549 11.7383 20.3077V21.5385"
+                                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <path
+                                                        d="M16.8021 15.3846C18.2005 15.3846 19.3342 14.2825 19.3342 12.9231C19.3342 11.5636 18.2005 10.4615 16.8021 10.4615C15.4037 10.4615 14.27 11.5636 14.27 12.9231C14.27 14.2825 15.4037 15.3846 16.8021 15.3846Z"
+                                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" />
+                                                    <defs>
+                                                        <linearGradient id="paint0_linear_11006_755" x1="39.7427"
+                                                            y1="-48.4086" x2="16.3311" y2="35.7856"
+                                                            gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#5498FF" />
+                                                            <stop offset="0.515625" stop-color="#428EFF" />
+                                                            <stop offset="1" stop-color="#297FFF" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+                                            </div>
 
-                        <div class="actions">
-                            <div class="check" data-id="2">
-                                <img data-id="2" src="/images/check.svg" alt="Check icon">
-                            </div>
+                                            <a href="#">
+                                                <%= question.title %>
+                                            </a>
+                                        </div>
 
-                            <div class="delete" data-id="2">
-                                <img data-id="2" src="/images/delete.svg" alt="Trash icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="question">
-                        <div class="content">
-                            <div class="avatar">
-                                <svg width="34" height="32" viewBox="0 0 34 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <ellipse cx="16.8023" cy="16" rx="16.4586" ry="16"
-                                        fill="url(#paint0_linear_11006_755)" />
-                                    <path
-                                        d="M21.8666 21.5385V20.3077C21.8666 19.6549 21.5999 19.0287 21.125 18.5671C20.6502 18.1055 20.0061 17.8462 19.3346 17.8462H14.2704C13.5988 17.8462 12.9548 18.1055 12.4799 18.5671C12.0051 19.0287 11.7383 19.6549 11.7383 20.3077V21.5385"
-                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M16.8021 15.3846C18.2005 15.3846 19.3342 14.2825 19.3342 12.9231C19.3342 11.5636 18.2005 10.4615 16.8021 10.4615C15.4037 10.4615 14.27 11.5636 14.27 12.9231C14.27 14.2825 15.4037 15.3846 16.8021 15.3846Z"
-                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_11006_755" x1="39.7427" y1="-48.4086"
-                                            x2="16.3311" y2="35.7856" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#5498FF" />
-                                            <stop offset="0.515625" stop-color="#428EFF" />
-                                            <stop offset="1" stop-color="#297FFF" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
+                                        <div class="actions">
+                                            <div class="check" data-id="<%= question.id %>">
+                                                <img data-id="<%= question.id %>" src="/images/check.svg"
+                                                    alt="Check icon">
+                                            </div>
 
-                            <a href="#">What is Typescript?</a>
-                        </div>
+                                            <div class="delete" data-id="<%= question.id %>">
+                                                <img data-id="<%= question.id %>" src="/images/delete.svg"
+                                                    alt="Trash icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }) %>
 
-                        <div class="actions">
-                            <div class="check" data-id="3">
-                                <img data-id="3" src="/images/check.svg" alt="Check icon">
-                            </div>
+                                        <% questionsRead.forEach(question=> {%>
+                                            <div class="question read">
+                                                <div class="content">
+                                                    <div class="avatar">
+                                                        <svg width="34" height="32" viewBox="0 0 34 32" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <ellipse cx="16.8023" cy="16" rx="16.4586" ry="16"
+                                                                fill="url(#paint0_linear_11006_755)" />
+                                                            <path
+                                                                d="M21.8666 21.5385V20.3077C21.8666 19.6549 21.5999 19.0287 21.125 18.5671C20.6502 18.1055 20.0061 17.8462 19.3346 17.8462H14.2704C13.5988 17.8462 12.9548 18.1055 12.4799 18.5671C12.0051 19.0287 11.7383 19.6549 11.7383 20.3077V21.5385"
+                                                                stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                            <path
+                                                                d="M16.8021 15.3846C18.2005 15.3846 19.3342 14.2825 19.3342 12.9231C19.3342 11.5636 18.2005 10.4615 16.8021 10.4615C15.4037 10.4615 14.27 11.5636 14.27 12.9231C14.27 14.2825 15.4037 15.3846 16.8021 15.3846Z"
+                                                                stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                            <defs>
+                                                                <linearGradient id="paint0_linear_11006_755"
+                                                                    x1="39.7427" y1="-48.4086" x2="16.3311" y2="35.7856"
+                                                                    gradientUnits="userSpaceOnUse">
+                                                                    <stop stop-color="#5498FF" />
+                                                                    <stop offset="0.515625" stop-color="#428EFF" />
+                                                                    <stop offset="1" stop-color="#297FFF" />
+                                                                </linearGradient>
+                                                            </defs>
+                                                        </svg>
+                                                    </div>
 
-                            <div class="delete" data-id="3">
-                                <img data-id="3" src="/images/delete.svg" alt="Trash icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="question read">
-                        <div class="content">
-                            <div class="avatar">
-                                <svg width="34" height="32" viewBox="0 0 34 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <ellipse cx="16.8023" cy="16" rx="16.4586" ry="16"
-                                        fill="url(#paint0_linear_11006_755)" />
-                                    <path
-                                        d="M21.8666 21.5385V20.3077C21.8666 19.6549 21.5999 19.0287 21.125 18.5671C20.6502 18.1055 20.0061 17.8462 19.3346 17.8462H14.2704C13.5988 17.8462 12.9548 18.1055 12.4799 18.5671C12.0051 19.0287 11.7383 19.6549 11.7383 20.3077V21.5385"
-                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M16.8021 15.3846C18.2005 15.3846 19.3342 14.2825 19.3342 12.9231C19.3342 11.5636 18.2005 10.4615 16.8021 10.4615C15.4037 10.4615 14.27 11.5636 14.27 12.9231C14.27 14.2825 15.4037 15.3846 16.8021 15.3846Z"
-                                        stroke="#FAFAFA" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_11006_755" x1="39.7427" y1="-48.4086"
-                                            x2="16.3311" y2="35.7856" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="#5498FF" />
-                                            <stop offset="0.515625" stop-color="#428EFF" />
-                                            <stop offset="1" stop-color="#297FFF" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
+                                                    <a href="#">
+                                                        <%= question.title %>
+                                                    </a>
+                                                </div>
 
-                            <div>I am integrating the invoice issue into an application, and the API returns me
-                                an html
-                                link to print. The problem is that when I set it to print from the react-print library,
-                                using dangerouslySetInnerHTML, the quality comes out very bad in the thermal printer. I
-                                would like to know what I can do to solve this problem and get a good quality. Can
-                                anyone help me?</div>
-                        </div>
+                                                <div class="actions">
+                                                    <div class="delete" data-id="<%= question.id %>">
+                                                        <img data-id="<%= question.id %>" src="/images/delete.svg"
+                                                            alt="Trash icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% }) %>
 
-                        <div class="actions">
-                            <div class="delete" data-id="1">
-                                <img data-id="1" src="/images/delete.svg" alt="Trash icon">
                             </div>
-                        </div>
-                    </div>
-                </div>
             </section>
         </main>
     </div>

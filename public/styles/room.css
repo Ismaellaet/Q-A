@@ -194,3 +194,31 @@ body.menu-expanded .menu div:nth-child(2) {
     justify-content: center;
     gap: .8rem;
 }
+
+/* ==== No questions ==== */
+.no-questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+
+    margin-top: 5.2rem;
+
+}
+
+.no-questions .title {
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: center;
+
+    color: var(--primary-color);
+}
+
+.questions .subtitle {
+    font-weight: 400;
+    font-size: 1.4rem;
+
+    text-align: center;
+    color: hsl(22, 22%, 38%);
+}

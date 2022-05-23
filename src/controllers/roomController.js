@@ -35,6 +35,21 @@ const create = async (req, res) => {
     res.redirect(`/room/${roomId}`);
 }
 
+const open = async (req, res) => {
+    const db = await Database();
+    const { roomId } = req.params;
+    const questions = await db.all(`SELECT * FROM questions WHERE roomId = ${roomId} AND read = 0`);
+    const questionsRead = await db.all(`SELECT * FROM questions WHERE roomId = ${roomId} AND read = 1`);
+    const hasQuestions = questions.length !== 0 && questionsRead.length !== 0;
+
+    res.render('room', { roomId: roomId, questions: questions, questionsRead: questionsRead, hasQuestions: hasQuestions });
+}
+
+const enter = (req, res) => {
+    const { roomId } = req.body;
+
+    res.redirect(`/room/${roomId}`);
+}
 
 const generateRoomId = () => {
     const maxIdLength = 6;
@@ -48,5 +63,7 @@ const generateRoomId = () => {
 }
 
 module.exports = {
-    create
+    create,
+    open,
+    enter,
 }
