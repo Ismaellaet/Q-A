@@ -1,8 +1,36 @@
-const create = (req, res) => {
-    const roomId = generateRoomId();
-    const { password } = req.body;
+const Database = require('../database/config');
 
-    console.log(`${roomId} ${password}`);
+const create = async (req, res) => {
+    const db = await Database();
+
+    let roomId;
+    let roomIdExist = true;
+
+    const existingRoomId = await db.all('SELECT id FROM rooms'); // Get all existing roomId
+
+
+    // While roomId exist, generate another roomId
+    while (roomIdExist) {
+        roomId = generateRoomId();
+        roomIdExist = existingRoomId.some(id => id === roomId);
+    }
+
+    // If roomId doesn't exist in the table, create new room
+    if (!roomIdExist) {
+        const { password } = req.body;
+
+        await db.run(`INSERT INTO rooms (
+            id,
+            password
+        ) VALUES (
+            ${roomId},
+            "${password}"
+        )`);
+
+        await db.close();
+
+        console.log(`Room ${roomId} created!`);
+    }
 
     res.redirect(`/room/${roomId}`);
 }
