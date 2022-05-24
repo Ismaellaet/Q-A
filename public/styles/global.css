@@ -57,7 +57,12 @@ h2 {
     margin-bottom: 2rem;
 }
 
-button,
+button {
+    background-color: transparent;
+    border: none;
+    line-height: 0;
+}
+
 .button {
     display: flex;
     align-items: center;
