@@ -8,20 +8,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    margin-top: 1.8rem;
 }
 
 #room h2 {
     margin-top: 4rem;
 }
 
-/* ==== Question Form ==== */
-.question-form form {
+/* ==== Form ==== */
+.form form {
     border: 1px solid var(--border-input-color);
     border-radius: 0 .8rem .8rem .8rem;
     padding: 1.2rem 1.6rem;
 }
 
-.question-form form textarea {
+.form form textarea {
     resize: none;
 
     width: 100%;
@@ -36,17 +38,17 @@
     font-size: 1.2rem;
 }
 
-.question-form form textarea::placeholder {
+.form form textarea::placeholder {
     color: var(--border-input-color);
 }
 
-.question-form form footer {
+.form form footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.question-form form footer div {
+.form form footer div {
     display: flex;
     align-items: center;
     gap: .8rem;
@@ -55,23 +57,15 @@
     color: var(--border-input-color);
 }
 
-/* ==== Questions ==== */
-.questions-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-
-    margin-block: 6rem;
-}
-
-.questions-wrapper .question {
+/* ==== Question ==== */
+.question {
     background-color: var(--question-background);
     border-radius: 0 .8rem .8rem .8rem;
 
     padding: 1.2rem .8rem 0 1.2rem;
 }
 
-.questions-wrapper .question .content {
+.question .content {
     display: flex;
     align-items: flex-start;
     gap: 1.2rem;
@@ -79,7 +73,8 @@
     margin-bottom: 2rem;
 }
 
-.questions-wrapper .question .content a {
+.question .content a,
+.question .content div:nth-child(2) {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.4rem;
 
@@ -92,7 +87,7 @@
     min-height: 5rem;
 }
 
-.questions-wrapper .question .actions {
+.question .actions {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -100,7 +95,7 @@
 }
 
 /* ==== Questions Read ==== */
-.questions-wrapper .question.read {
+.question.read {
     background-color: var(--question-read-background);
 }
 
@@ -195,19 +190,16 @@ body.menu-expanded .menu div:nth-child(2) {
     gap: .8rem;
 }
 
-/* ==== No questions ==== */
-.no-questions {
+/* ==== Empty ==== */
+.empty {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1.2rem;
-
-    margin-top: 5.2rem;
-
 }
 
-.no-questions .title {
+.empty .title {
     font-weight: 600;
     font-size: 1.8rem;
     text-align: center;
@@ -215,10 +207,25 @@ body.menu-expanded .menu div:nth-child(2) {
     color: var(--primary-color);
 }
 
-.questions .subtitle {
-    font-weight: 400;
-    font-size: 1.4rem;
+/* ==== Questions-room ==== */
+#questions-room .empty {
+    margin: 4rem;
+}
 
+/* ==== Answers-room ==== */
+#answers-room .wrapper {
+    margin-block: 2.4rem;
+}
+
+#answers-room .question {
+    margin-top: 4rem;
+}
+
+.separator {
+    margin: 2rem 0;
+}
+
+.form .separator div:nth-child(2) {
+    min-width: 10rem;
     text-align: center;
-    color: hsl(22, 22%, 38%);
 }

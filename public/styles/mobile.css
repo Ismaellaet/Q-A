@@ -26,25 +26,3 @@ main form input {
 main form input::placeholder {
     color: var(--border-input-color);
 }
-
-/* ==== Separator ==== */
-.separator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-
-    margin: 4rem 0;
-}
-
-.separator div:nth-child(2) {
-    font-size: 1.6rem;
-    color: var(--details);
-}
-
-.separator div:nth-child(1),
-.separator div:nth-child(3) {
-    width: 100%;
-    height: 1px;
-    background: var(--details);
-}
