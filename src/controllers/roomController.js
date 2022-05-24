@@ -6,13 +6,13 @@ const create = async (req, res) => {
     let roomId;
     let roomIdExist = true;
 
-    const existingRoomId = await db.all('SELECT id FROM rooms'); // Get all existing roomId
+    const existingRooms = await db.all('SELECT id FROM rooms'); // Get all existing rooms
 
 
-    // While roomId exist, generate another roomId
+    // While room id exist, generate another room id
     while (roomIdExist) {
         roomId = generateRoomId();
-        roomIdExist = existingRoomId.some(id => id === roomId);
+        roomIdExist = existingRooms.some(room => room.id === roomId);
     }
 
     // If roomId doesn't exist in the table, create new room
@@ -45,10 +45,19 @@ const open = async (req, res) => {
     res.render('room', { roomId: roomId, questions: questions, questionsRead: questionsRead, hasQuestions: hasQuestions });
 }
 
-const enter = (req, res) => {
+const enter = async (req, res) => {
     const { roomId } = req.body;
 
-    res.redirect(`/room/${roomId}`);
+    const db = await Database();
+    const existingRooms = await db.all('SELECT id FROM rooms'); // Get all existing rooms
+    const roomIdExist = existingRooms.some(room => room.id == roomId); // Check if room id exist
+
+    // If room id exist, enter the room
+    if (roomIdExist) {
+        res.redirect(`/room/${roomId}`);
+    } else {
+        res.render('home', { page: 'enter-room', classError: 'message-error active' }); // Display error message, adding class 'active' on error
+    }
 }
 
 const generateRoomId = () => {

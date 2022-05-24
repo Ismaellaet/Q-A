@@ -4,7 +4,7 @@ const RoomController = require('./controllers/roomController');
 
 const route = express.Router();
 
-route.get('/', (req, res) => res.render('home', { page: 'enter-room' }));
+route.get('/', (req, res) => res.render('home', { page: 'enter-room', classError: 'message-error' }));
 
 route.get('/create-room', (req, res) => res.render('home', { page: 'create-room' }));
 

@@ -107,3 +107,24 @@ button {
 .red {
     background-color: var(--delete-background);
 }
+
+.message-error {
+    font-size: 1.6rem;
+    text-align: center;
+    width: 100%;
+
+    background-color: var(--delete-background);
+    color: white;
+
+    position: absolute;
+    right: 0;
+    top: 10.2rem;
+
+    visibility: hidden;
+    opacity: 0;
+}
+
+.message-error.active {
+    visibility: visible;
+    opacity: 1;
+}
