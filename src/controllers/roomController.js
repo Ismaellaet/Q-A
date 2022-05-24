@@ -40,7 +40,7 @@ const open = async (req, res) => {
     const { roomId } = req.params;
     const questions = await db.all(`SELECT * FROM questions WHERE roomId = ${roomId} AND read = 0`);
     const questionsRead = await db.all(`SELECT * FROM questions WHERE roomId = ${roomId} AND read = 1`);
-    const hasQuestions = questions.length !== 0 && questionsRead.length !== 0;
+    const hasQuestions = questions.length !== 0 || questionsRead.length !== 0;
 
     res.render('room', { roomId: roomId, questions: questions, questionsRead: questionsRead, hasQuestions: hasQuestions });
 }
