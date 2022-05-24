@@ -16,6 +16,12 @@ const initDB = {
             read INTEGER
         )`);
 
+        await db.exec(`CREATE TABLE answers (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            questionId INTEGER,            
+            content TEXT
+        )`);
+
         await db.close();
     }
 }

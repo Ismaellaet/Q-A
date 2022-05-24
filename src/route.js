@@ -10,6 +10,8 @@ route.get('/create-room', (req, res) => res.render('home', { page: 'create-room'
 
 route.get('/room/:roomId', RoomController.open);
 
+route.get('/room/:roomId/:questionId/answer', RoomController.answer);
+
 route.post('/enter-room', RoomController.enter);
 
 route.post('/room/create-room', RoomController.create);

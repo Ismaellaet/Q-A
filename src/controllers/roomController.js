@@ -51,6 +51,22 @@ const open = async (req, res) => {
     });
 }
 
+const answer = async (req, res) => {
+    const db = await Database();
+
+    const { roomId, questionId } = req.params;
+    const question = await db.get(`SELECT * FROM questions WHERE id = ${questionId}`);
+    const answers = await db.all(`SELECT * FROM answers WHERE questionId = ${questionId}`);
+
+
+    res.render('room', {
+        page: 'answers-room',
+        roomId: roomId,
+        question: question,
+        answers: answers
+    });
+}
+
 const enter = async (req, res) => {
     const { roomId } = req.body;
 
@@ -80,5 +96,6 @@ const generateRoomId = () => {
 module.exports = {
     create,
     open,
+    answer,
     enter,
 }
