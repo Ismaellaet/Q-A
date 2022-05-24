@@ -39,6 +39,8 @@ const action = async (req, res) => {
         await db.close();
 
         res.redirect(`/room/${roomId}`);
+    } else {
+        res.render('passIncorrect', { roomId: roomId });
     }
 }
 
