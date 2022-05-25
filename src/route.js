@@ -2,6 +2,7 @@ const express = require('express');
 const QuestionController = require('./controllers/questionController');
 const RoomController = require('./controllers/roomController');
 const AnswerController = require('./controllers/answerController');
+const ActionController = require('./controllers/actionController');
 
 const route = express.Router();
 
@@ -21,7 +22,7 @@ route.post('/room/create/:roomId', QuestionController.create);
 
 route.post('/room/answer/:roomId/:questionId', AnswerController.create);
 
-route.post('/room/:roomId/:questionId/:action', QuestionController.action);
+route.post('/room/:roomId/:roomType/:targetId/:action', ActionController.exec);
 
 
 module.exports = route;

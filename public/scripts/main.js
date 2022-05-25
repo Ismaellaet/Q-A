@@ -30,9 +30,10 @@ const clickHandling = (event, type) => {
     function setFormAction() {
         const form = document.querySelector('.modal form');
         const roomId = document.querySelector('#room-id').dataset.id;
-        const questionId = event.target.dataset.id;
+        const roomType = document.querySelector('main').dataset.id;
+        const targetId = event.target.dataset.id;
 
-        form.setAttribute('action', `/room/${roomId}/${questionId}/${type}`);
+        form.setAttribute('action', `/room/${roomId}/${roomType}/${targetId}/${type}`);
     }
 }
 

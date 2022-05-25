@@ -1,4 +1,4 @@
-<main id="answers-room">
+<main id="answers-room" data-id="answers">
     <section class="question <% if(question.read == 1) { %> read <% } %>">
         <div class="content">
             <div class="avatar">
@@ -24,18 +24,6 @@
             <div>
                 <%= question.title %>
             </div>
-        </div>
-
-        <div class="actions">
-            <% if(question.read==0) { %>
-                <div class="check" data-id="<%= question.id %>">
-                    <img data-id="<%= question.id %>" src="/images/check.svg" alt="Check icon">
-                </div>
-                <% } %>
-
-                    <div class="delete" data-id="<%= question.id %>">
-                        <img data-id="<%= question.id %>" src="/images/delete.svg" alt="Trash icon">
-                    </div>
         </div>
     </section>
 
@@ -84,8 +72,8 @@
                             </div>
 
                             <div class="actions">
-                                <div class="delete" data-id="<%= question.id %>">
-                                    <img data-id="<%= question.id %>" src="/images/delete.svg" alt="Trash icon">
+                                <div class="delete" data-id="<%= answer.id %>">
+                                    <img data-id="<%= answer.id %>" src="/images/delete.svg" alt="Trash icon">
                                 </div>
                             </div>
                         </div>

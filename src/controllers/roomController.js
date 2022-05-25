@@ -59,8 +59,6 @@ const answer = async (req, res) => {
     const answers = await db.all(`SELECT * FROM answers WHERE questionId = ${questionId}`);
     const hasAnswers = answers.length !== 0;
 
-
-
     res.render('room', {
         page: 'answers-room',
         roomId: roomId,
