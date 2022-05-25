@@ -173,10 +173,6 @@ body.menu-expanded .menu a {
 }
 
 body.menu-expanded .menu div {
-    width: fit-content;
-
-
-
     border: 2px solid white;
     border-radius: .8rem;
 
@@ -189,12 +185,14 @@ body.menu-expanded .menu div {
 }
 
 body.menu-expanded .menu div input {
+    background-color: transparent;
     color: white;
-    width: 6rem;
+
+    width: 8rem;
     border: none;
+
     font-size: 1.6rem;
     font-weight: 500;
-    background-color: transparent;
 }
 
 /* ==== Empty ==== */
@@ -225,7 +223,8 @@ body.menu-expanded .menu div input {
 }
 
 #answers-room .question {
-    margin-top: 4rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 #answers-room .answer {
