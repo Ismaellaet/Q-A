@@ -33,6 +33,7 @@ const create = async (req, res) => {
 
 const open = async (req, res) => {
     const db = await Database();
+
     const { roomId } = req.params;
     const questions = await db.all(`SELECT * FROM questions WHERE roomId = ${roomId} AND read = 0`);
     const questionsRead = await db.all(`SELECT * FROM questions WHERE roomId = ${roomId} AND read = 1`);
@@ -65,13 +66,12 @@ const answer = async (req, res) => {
 }
 
 const enter = async (req, res) => {
-    const { roomId } = req.body;
-
     const db = await Database();
-    const existingRooms = await db.all('SELECT id FROM rooms'); // Get all existing rooms
+
+    const { roomId } = req.body;
+    const existingRooms = await db.all('SELECT id FROM rooms');
     const roomIdExist = existingRooms.some(room => room.id == roomId); // Check if room id exist
 
-    // If room id exist, enter the room
     if (roomIdExist) {
         res.redirect(`/room/${roomId}`);
     } else {
