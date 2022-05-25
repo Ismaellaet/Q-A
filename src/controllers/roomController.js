@@ -2,24 +2,17 @@ const Database = require('../database/config');
 
 const create = async (req, res) => {
     const db = await Database();
+    const { password } = req.body;
 
-    let roomId;
-    let roomIdExist = true;
+    let roomId = generateRoomId();
 
-    const existingRooms = await db.all('SELECT id FROM rooms'); // Get all existing rooms
-
-
-    // While room id exist, generate another room id
-    while (roomIdExist) {
+    // While room id repeat, generate another room id
+    while (isRepeated(roomId)) {
         roomId = generateRoomId();
-        roomIdExist = existingRooms.some(room => room.id === roomId);
     }
 
-    // If roomId doesn't exist in the table, create new room
-    if (!roomIdExist) {
-        const { password } = req.body;
-
-        await db.run(`INSERT INTO rooms (
+    // Create room in rooms table
+    await db.run(`INSERT INTO rooms (
             id,
             password
         ) VALUES (
@@ -27,12 +20,15 @@ const create = async (req, res) => {
             "${password}"
         )`);
 
-        await db.close();
-
-        console.log(`Room ${roomId} created!`);
-    }
+    await db.close();
 
     res.redirect(`/room/${roomId}`);
+
+    async function isRepeated(roomId) {
+        const existingRooms = await db.all('SELECT id FROM rooms');
+
+        return existingRooms.some(room => room.id === roomId);
+    }
 }
 
 const open = async (req, res) => {
