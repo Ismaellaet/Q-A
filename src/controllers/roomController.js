@@ -2,6 +2,7 @@ const Database = require('../database/config');
 
 const create = async (req, res) => {
     const db = await Database();
+    const existingRooms = await db.all('SELECT id FROM rooms');
     const { password } = req.body;
 
     let roomId = generateRoomId();
@@ -24,9 +25,7 @@ const create = async (req, res) => {
 
     res.redirect(`/room/${roomId}`);
 
-    async function isRepeated(roomId) {
-        const existingRooms = await db.all('SELECT id FROM rooms');
-
+    function isRepeated(roomId) {
         return existingRooms.some(room => room.id === roomId);
     }
 }
