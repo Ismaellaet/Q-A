@@ -1,28 +1,42 @@
 const Database = require("../database/config");
 
 const exec = async (req, res) => {
-    const db = await Database();
-
     const { roomId, roomType, targetId, action } = req.params;
     const { password } = req.body;
-    const currentRoom = await db.get(`SELECT * FROM rooms WHERE id = ${roomId}`);
-    const validPassword = currentRoom.password == password;
 
-    if (validPassword) {
-        if (roomType == 'answers') {
-            const answer = await db.get(`SELECT * FROM answers WHERE id = ${targetId}`)
+    const db = await Database();
+    const currentRoom = await db.get(`SELECT * FROM rooms WHERE id = ${roomId}`);
+
+    const roomTypes = {
+        async answers() {
+            const answer = await db.get(`SELECT * FROM answers WHERE id = ${targetId}`);
 
             res.redirect(`/room/${roomId}/${answer.questionId}/answer`);
-        } else {
+        },
+
+        questions() {
             res.redirect(`/room/${roomId}`);
         }
+    }
 
-        if (action === 'delete') {
+    const actionTypes = {
+        async delete() {
             await db.run(`DELETE FROM ${roomType} WHERE id = ${targetId}`);
-        } else {
+        },
+
+        async check() {
             await db.run(`UPDATE questions SET read = 1 WHERE id = ${targetId} `);
         }
+    }
 
+    const passwordIsValid = currentRoom.password == password;
+
+    if (passwordIsValid) {
+        const roomFunction = roomTypes[roomType];
+        const actionFunction = actionTypes[action];
+
+        roomFunction();
+        actionFunction();
     } else {
         res.render(`passIncorrect`, { roomId: roomId });
     }
