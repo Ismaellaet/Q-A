@@ -16,6 +16,13 @@
     margin-top: 4rem;
 }
 
+#room .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+}
+
 /* ==== Form ==== */
 .form form {
     border: 1px solid var(--border-input-color);
@@ -85,13 +92,6 @@
 
     word-break: break-word;
     min-height: 5rem;
-}
-
-.question .actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1.2rem;
 }
 
 /* ==== Questions Read ==== */
@@ -221,11 +221,44 @@ body.menu-expanded .menu div:nth-child(2) {
     margin-top: 4rem;
 }
 
+#answers-room .answer {
+    background-color: var(--answer-background);
+    border-radius: 0 .8rem .8rem .8rem;
+
+    padding: 1.2rem .8rem 0 1.2rem;
+}
+
+.answer .content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+
+    margin-bottom: 2rem;
+}
+
+.answer .content div:nth-child(2) {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+
+    color: var(--secundary-color);
+
+    display: flex;
+    align-items: flex-start;
+
+    word-break: break-word;
+    min-height: 5rem;
+}
+
 .separator {
     margin: 2rem 0;
 }
 
+.separator div:nth-child(2) {
+    color: var(--secundary-color);
+    font-weight: 700;
+}
+
 .form .separator div:nth-child(2) {
-    min-width: 10rem;
+    min-width: 11rem;
     text-align: center;
 }

@@ -10,6 +10,7 @@
     --background: hsl(180, 14%, 97%);
     --question-background: hsl(21, 100%, 94%);
     --question-read-background: hsla(22, 22%, 38%, 0.1);
+    --answer-background: hsl(216, 100%, 94%);
 
     --cancel-background: hsl(216, 30%, 92%);
     --delete-background: hsl(350, 79%, 58%);

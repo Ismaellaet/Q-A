@@ -1,6 +1,7 @@
 const express = require('express');
 const QuestionController = require('./controllers/questionController');
 const RoomController = require('./controllers/roomController');
+const AnswerController = require('./controllers/answerController');
 
 const route = express.Router();
 
@@ -17,6 +18,8 @@ route.post('/enter-room', RoomController.enter);
 route.post('/room/create-room', RoomController.create);
 
 route.post('/room/create/:roomId', QuestionController.create);
+
+route.post('/room/answer/:roomId/:questionId', AnswerController.create);
 
 route.post('/room/:roomId/:questionId/:action', QuestionController.action);
 
