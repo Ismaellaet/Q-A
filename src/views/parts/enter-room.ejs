@@ -1,10 +1,10 @@
 <main>
-    <p class="<%= classError %>">Room code was not found!</p>
+    <p class="<%= classError %>">The room was not found!</p>
     <h2>Enter as guest</h2>
 
     <form action="/enter-room" method="POST">
-        <label for="room-code" class="sr-only">Room code</label>
-        <input type="number" name="roomId" id="room-code" placeholder="Room code">
+        <label for="roomId" class="sr-only">Room code</label>
+        <input type="number" name="roomId" id="roomId" placeholder="Room code">
 
         <button class="button">
             <img src="/images/log-in.svg" alt="Log in">
