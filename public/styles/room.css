@@ -153,7 +153,7 @@ body.menu-expanded .menu {
     transform: translateX(100%);
 }
 
-body.menu-expanded .menu div:nth-child(1) {
+body.menu-expanded .menu a {
     display: flex;
     justify-content: center;
     align-items: center;
