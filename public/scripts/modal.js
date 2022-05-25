@@ -11,6 +11,7 @@ export default function Modal() {
     function open() {
         wrapper.classList.add('active');
     }
+
     /**
      * @param {string} type delete || check
      * @return {void}
@@ -20,19 +21,22 @@ export default function Modal() {
         const title = document.querySelector('.modal .title');
         const description = document.querySelector('.modal .description');
         const confirmButton = document.querySelector('.modal .confirm');
+
         const text = type === 'delete' ? 'Delete' : 'Mark as read';
 
-        title.innerHTML = `${text} question`; // Change modal title
-        description.innerHTML = `Are you sure you want to ${text.toLowerCase()} this question?`; // Change modal description
-        confirmButton.innerHTML = text; // Change modal confirm button
+        const changeTitle = title.innerHTML = `${text} question`;
+        const changeDescription = description.innerHTML = `Are you sure you want to ${text.toLowerCase()} this question?`;
+        const changeConfirmButton = confirmButton.innerHTML = text;
+
         changeColorOfConfirmButton();
 
         function changeColorOfConfirmButton() {
             if (type === 'delete') {
                 confirmButton.classList.add('red');
-            } else {
-                confirmButton.classList.remove('red');
+                return;
             }
+
+            confirmButton.classList.remove('red');
         }
     }
 
