@@ -37,4 +37,14 @@ const clickHandling = (event, type) => {
     }
 }
 
+/* ==== ClipBoard Function ==== */
+const clipboard = () => {
+    const text = document.querySelector('#room-id');
 
+    // text.select();
+    text.setSelectionRange(0, 99999);
+
+    navigator.clipboard.writeText(text.value.substring(1));
+}
+
+document.querySelector('.copy-text').addEventListener('click', clipboard);

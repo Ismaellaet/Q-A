@@ -172,12 +172,10 @@ body.menu-expanded .menu a {
     line-height: 2.4rem;
 }
 
-body.menu-expanded .menu div:nth-child(2) {
-    color: white;
+body.menu-expanded .menu div {
     width: fit-content;
 
-    font-size: 1.6rem;
-    font-weight: 500;
+
 
     border: 2px solid white;
     border-radius: .8rem;
@@ -188,6 +186,15 @@ body.menu-expanded .menu div:nth-child(2) {
     align-items: center;
     justify-content: center;
     gap: .8rem;
+}
+
+body.menu-expanded .menu div input {
+    color: white;
+    width: 6rem;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    background-color: transparent;
 }
 
 /* ==== Empty ==== */
