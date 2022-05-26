@@ -21,6 +21,11 @@ const exec = async (req, res) => {
 
     const actionTypes = {
         async delete() {
+            // Delete all answers when the question is deleted
+            if (roomType === 'questions') {
+                await db.run(`DELETE FROM answers WHERE questionId = ${targetId}`);
+            }
+
             await db.run(`DELETE FROM ${roomType} WHERE id = ${targetId}`);
         },
 
