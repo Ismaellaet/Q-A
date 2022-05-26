@@ -82,3 +82,33 @@
     font-weight: 500;
     padding-block: 2.4rem;
 }
+
+/*  Responsive */
+@media (min-width: 1024px) {
+    .modal-wrapper .modal {
+        width: 52rem;
+        padding: 6.4rem 10rem;
+    }
+
+    .modal-wrapper .modal .description {
+        font-size: 1.6rem;
+    }
+
+    .modal-wrapper .modal form input {
+        width: 30.2rem;
+        height: 5rem;
+    }
+
+    .modal-wrapper .modal .buttons {
+        margin-top: 4rem;
+        gap: .8rem;
+    }
+
+    .modal-wrapper .modal .buttons .cancel {
+        cursor: pointer;
+    }
+
+    .modal-wrapper .modal .buttons .cancel:hover {
+        filter: brightness(1.04);
+    }
+}

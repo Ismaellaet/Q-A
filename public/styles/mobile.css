@@ -4,13 +4,10 @@ header {
     align-items: center;
     justify-content: space-between;
     margin-top: 1.8rem;
+    margin-bottom: 8rem;
 }
 
 /* ==== Main ==== */
-main {
-    margin-top: 8rem;
-}
-
 main form input {
     width: 100%;
 
@@ -25,4 +22,49 @@ main form input {
 
 main form input::placeholder {
     color: var(--border-input-color);
+}
+
+/* ==== Responsive ==== */
+@media (min-width: 1024px) {
+
+    /* Globals */
+    body {
+        height: 100vh;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: min-content 1fr;
+        grid-template-areas: "header header""img main";
+
+        width: 100vw;
+        height: 100%;
+    }
+
+    main {
+        grid-area: main;
+        justify-self: center;
+
+        width: 40rem;
+        height: fit-content;
+    }
+
+    header {
+        grid-area: header;
+        margin: 3.2rem 0 6rem 8rem;
+    }
+
+    /* Bg illustration */
+    .bg-illustration {
+        background-image: url(../images/home-illustration.svg);
+        background-position: -8rem 0;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        grid-area: img;
+        align-self: auto;
+
+        width: 100%;
+    }
 }

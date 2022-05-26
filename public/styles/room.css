@@ -28,6 +28,8 @@
     border: 1px solid var(--border-input-color);
     border-radius: 0 .8rem .8rem .8rem;
     padding: 1.2rem 1.6rem;
+
+    font-family: 'Open Sans', sans-serif;
 }
 
 .form form textarea {
@@ -47,6 +49,7 @@
 
 .form form textarea::placeholder {
     color: var(--border-input-color);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .form form footer {
@@ -88,13 +91,12 @@
     color: var(--secundary-color);
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 
     word-break: break-word;
-    min-height: 5rem;
+    min-height: 3.2rem;
 }
 
-/* ==== Questions Read ==== */
 .question.read {
     background-color: var(--question-read-background);
 }
@@ -234,7 +236,7 @@ body.menu-expanded .menu div input {
     padding: 1.2rem .8rem 0 1.2rem;
 }
 
-.answer .content {
+#answers-room .answer .content {
     display: flex;
     align-items: flex-start;
     gap: 1.2rem;
@@ -242,29 +244,263 @@ body.menu-expanded .menu div input {
     margin-bottom: 2rem;
 }
 
-.answer .content div:nth-child(2) {
+#answers-room .answer .content div:nth-child(2) {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.4rem;
 
     color: var(--secundary-color);
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 
     word-break: break-word;
-    min-height: 5rem;
+    min-height: 3.2rem;
 }
 
-.separator {
+#answers-room .separator {
     margin: 2rem 0;
 }
 
-.separator div:nth-child(2) {
+#answers-room .separator div:nth-child(2) {
     color: var(--secundary-color);
     font-weight: 700;
 }
 
-.form .separator div:nth-child(2) {
+#answers-room .form .separator div:nth-child(2) {
     min-width: 11rem;
     text-align: center;
+}
+
+/* ==== Responsive ==== */
+@media (min-width: 1024px) {
+
+    /* Globals */
+    .container {
+        width: min(90%, 112rem);
+    }
+
+    #room header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Navigation */
+    /* Reset */
+    nav#navigation> :not(.sr-only) {
+        display: initial;
+        flex-direction: initial;
+        position: initial;
+        background-color: initial;
+        color: initial;
+        transform: initial;
+        opacity: initial;
+        visibility: initial;
+        font-size: initial;
+        font-weight: initial;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav#navigation .close-menu,
+    nav#navigation .open-menu {
+        display: none;
+    }
+
+    nav#navigation .menu {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: .8rem;
+    }
+
+    nav#navigation .menu a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        padding: 1.2rem 2rem;
+        border-radius: 8px;
+
+        background-color: var(--primary-color);
+        color: white;
+
+        font-weight: 500;
+        font-size: 1.6rem;
+    }
+
+    nav#navigation .menu a:hover {
+        filter: brightness(1.2);
+    }
+
+    nav#navigation .menu a path {
+        stroke: white;
+    }
+
+    nav#navigation .menu .copy-text {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        height: 5rem;
+        padding-inline: 1.6rem;
+
+        border: 2px solid var(--primary-color);
+        border-radius: .8rem;
+
+        cursor: pointer;
+    }
+
+    nav#navigation .menu .copy-text:hover {
+        transition: scale ease-in-out .1s;
+        transform: scale(1.02);
+    }
+
+    nav#navigation .menu .copy-text input {
+        background: transparent;
+        color: var(--primary-color);
+
+        border: none;
+        cursor: pointer;
+
+        font-weight: 500;
+        font-size: 1.6rem;
+
+        width: 8rem;
+    }
+
+    nav#navigation .menu .copy-text svg path {
+        stroke: var(--primary-color);
+    }
+
+    nav#navigation .menu .copy-text input:focus {
+        outline: none;
+    }
+
+    /* Form */
+    .form form textarea {
+        font-size: 1.6rem;
+    }
+
+    .form textarea::placeholder {
+        font-size: 1.6rem;
+    }
+
+    .form form footer div {
+        font-size: 1.6rem;
+    }
+
+    .send {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        padding: 1.2rem 1.6rem;
+        background-color: var(--primary-color);
+        border-radius: .8rem;
+    }
+
+    .send svg path {
+        stroke: white;
+    }
+
+    .send::after {
+        content: 'Send';
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+    /* Question */
+    .question .content .avatar svg {
+        width: 52px;
+        height: 52px;
+    }
+
+    .question .content a,
+    .question .content div:nth-child(2) {
+        font-size: 1.6rem;
+        min-height: 5rem;
+    }
+
+    #room .question .actions {
+        gap: 5.6rem;
+        margin: 2rem;
+    }
+
+    .question .actions div {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+
+        color: hsl(22, 22%, 38%);
+
+        font-size: 1.6rem;
+        font-family: 'Open Sans', sans-serif;
+
+        cursor: pointer;
+    }
+
+    .question .actions div:nth-child(1):after {
+        content: 'Mark as read';
+    }
+
+    .question .actions div:nth-child(2):after {
+        content: 'Delete';
+    }
+
+    /* Answers */
+    #answers-room .back-page svg {
+        width: 40px;
+        height: 40px;
+        margin-block: 2rem;
+        transition: ease-in-out .2s;
+    }
+
+    #answers-room .back-page svg:hover {
+        transform: translateX(-20%);
+    }
+
+    #answers-room .separator {
+        margin-bottom: 5.2rem;
+    }
+
+    #answers-room .separator div:nth-child(2) {
+        font-size: 2.4rem;
+    }
+
+    #answers-room .form .separator div:nth-child(2) {
+        min-width: 16rem;
+    }
+
+    #answers-room .answer .content .avatar svg {
+        width: 52px;
+        height: 52px;
+    }
+
+    #answers-room .answer .content div:nth-child(2) {
+        font-size: 1.6rem;
+        min-height: 5rem;
+    }
+
+    #answers-room .answer .actions {
+        margin: 2rem;
+    }
+
+    #answers-room .answer .actions .delete {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+
+        color: hsl(22, 22%, 38%);
+
+        font-size: 1.6rem;
+        font-family: 'Open Sans', sans-serif;
+
+        cursor: pointer;
+    }
+
+    #answers-room .answer .actions .delete:after {
+        content: 'Delete';
+    }
 }
