@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
     "init-db": "node src/database/init.js",
-    "start": "nodemon ."
+    "dev": "nodemon ."
   },
   "repository": {
     "type": "git",
