@@ -441,11 +441,11 @@ body.menu-expanded .menu div input {
         cursor: pointer;
     }
 
-    .question .actions div:nth-child(1):after {
+    .question .actions .check:after {
         content: 'Mark as read';
     }
 
-    .question .actions div:nth-child(2):after {
+    .question .actions .delete:after {
         content: 'Delete';
     }
 
